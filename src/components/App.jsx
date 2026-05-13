@@ -41,6 +41,20 @@ function App() {
 
   }
 
+  function updateToy(updatedToy){
+
+    const newToy = toys.map((toy) => {
+
+      if(toy.id === updatedToy.id) return updatedToy
+
+      return toy
+
+    })
+
+    setToys(newToy)
+
+  }
+
   function handleClick() {
     setShowForm((showForm) => !showForm);
   }
@@ -52,7 +66,7 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
-      <ToyContainer toys={toys} deleteToy={deleteToy} />
+      <ToyContainer toys={toys} deleteToy={deleteToy} updateToy={updateToy}/>
     </>
   );
 }
